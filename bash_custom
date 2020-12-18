@@ -11,8 +11,8 @@ if [[ $DESKTOP_SESSION == "gnome" ]]
 
 
 
-if [ -f ~/.bash_github ]; then 
-   . ~/.bash_github
+if [ -f bash_github ]; then 
+   . bash_github
   fi
 
 export PATH="/usr/local/bin:$PATH"
@@ -23,11 +23,24 @@ set -o vi
 #OSX specific
 if [[ "`uname`" == "Darwin" ]]
   then
-    alias vim="mvim -v"
+    #alias vim="mvim -v"
     alias ls='ls -G'
+    # Set the directory color to not be blue on a dark background
+    export LSCOLORS=Gxfxcxdxbxegedabagacad
     export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
     # Go to ios sim. directory
     alias cdios='cd /Users/macodactyl/Library/Application\ Support/iPhone\ Simulator/'
+    # Add adb
+    if [ -f ~/Library/Android/sdk/platform-tools/adb ]; then 
+        export PATH="~/Library/Android/sdk/platform-tools:$PATH"
+      fi
+
+    alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+    alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+
+    export PATH="/usr/local/Cellar/postgresql/11.5_1/bin:$PATH"
+    # Did this because `pip install psycopg2` was failing, this worked
+    export LDFLAGS="-L/usr/local/opt/openssl/lib"
   fi
 
 for script in ~/.bash_scripts/*;
@@ -72,4 +85,18 @@ function push(){
         else
             git push origin $branch
                 fi
+}
+
+
+## python shit
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+export PATH="/Users/macadactyl/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+rmd () {
+  pandoc $1 | lynx -stdin
 }

@@ -1,0 +1,2 @@
+# git last commit
+alias gitlcom git log --pretty=oneline --abbrev-commit

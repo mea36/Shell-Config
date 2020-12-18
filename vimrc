@@ -291,6 +291,15 @@ map sg :call SearchGit()<CR>
 " format json
 command JSON :%!python -m json.tool
 
+"create command to open a new tab with nerd tree 
+fun! TabWithFileDir()
+    " open new tab
+    :tabnew
+    " open nerd tree
+    :NERDTreeToggle
+endfun
+command TT :call TabWithFileDir()
+
 " convert page of 
 " [filename]: [line of code]
 " to
@@ -340,3 +349,10 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_javascript_checkers = ['eslint'] 
 "let g:syntastic_php_checkers = ['phpcs'] 
+
+" set tsx to be typscript files?
+" not sure if this works
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
