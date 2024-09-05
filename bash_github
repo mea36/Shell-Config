@@ -1,2 +1,6 @@
 # git last commit
-alias gitlcom git log --pretty=oneline --abbrev-commit
+alias gitlcom="git log --pretty=oneline --abbrev-commit"
+
+alias gopen="git remote -v | awk '/origin.*push/ {print \$2}' | sed 's/^.*github.com\:/https:\/\/github\.com\//' | xargs open"
+
+alias git_branches_by_date="git for-each-ref --sort=-committerdate refs/heads/"

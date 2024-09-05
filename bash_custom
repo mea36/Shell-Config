@@ -10,10 +10,13 @@ if [[ $DESKTOP_SESSION == "gnome" ]]
   fi
 
 
+if [ -f ~/Source/Shell-Config/bash_github ]; then
+   . ~/Source/Shell-Config/bash_github
+fi
+if [ -f ~/Source/Shell-Config/bash_chromatic ]; then
+   . ~/Source/Shell-Config/bash_chromatic
+fi
 
-if [ -f bash_github ]; then 
-   . bash_github
-  fi
 
 export PATH="/usr/local/bin:$PATH"
 
@@ -23,24 +26,14 @@ set -o vi
 #OSX specific
 if [[ "`uname`" == "Darwin" ]]
   then
-    #alias vim="mvim -v"
     alias ls='ls -G'
+    alias python="python3"
+    alias pip="pip3"
+    alias vi="nvim"
+    alias vig="nvim '+Git'"
+    alias vin="nvim '+NERDTreeToggle'"
     # Set the directory color to not be blue on a dark background
     export LSCOLORS=Gxfxcxdxbxegedabagacad
-    export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
-    # Go to ios sim. directory
-    alias cdios='cd /Users/macodactyl/Library/Application\ Support/iPhone\ Simulator/'
-    # Add adb
-    if [ -f ~/Library/Android/sdk/platform-tools/adb ]; then 
-        export PATH="~/Library/Android/sdk/platform-tools:$PATH"
-      fi
-
-    alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-    alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-
-    export PATH="/usr/local/Cellar/postgresql/11.5_1/bin:$PATH"
-    # Did this because `pip install psycopg2` was failing, this worked
-    export LDFLAGS="-L/usr/local/opt/openssl/lib"
   fi
 
 for script in ~/.bash_scripts/*;
@@ -48,7 +41,6 @@ do
     source "$script"
 done
 
-# Same function that's in bash_github but doesn't include parentheses
 gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
@@ -76,8 +68,6 @@ function cdl {
     fi
 }
 
-alias git_branches_by_date="git for-each-ref --sort=-committerdate refs/heads/"
-
 function push(){
     branch=`git rev-parse --abbrev-ref HEAD`
         if [ $branch == 'master' ]; then
@@ -88,15 +78,16 @@ function push(){
 }
 
 
-## python shit
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
-
-export PATH="/Users/macadactyl/Library/Python/3.7/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#export PATH="$HOME/Library/Python/3.7/bin:$PATH"
+#export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 rmd () {
   pandoc $1 | lynx -stdin
 }
+
+# fzf
+#eval "$(fzf --bash)" # this isn't working, do you need it?
+
+
+# for gnu-sed brew install
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"

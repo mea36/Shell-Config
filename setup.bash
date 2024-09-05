@@ -12,6 +12,9 @@ ln -sf $CONFIGPATH/vimrc ~/.vimrc
 mv ~/.vim ~/.vim.bak
 ln -sf $CONFIGPATH/vim ~/.vim
 
+echo "Configuring NVIM"
+ln -sf $CONFIGPATH/vimrc ~/.config/nvim/init.vim 
+
 echo "Configuring BASH"
 if [[ ! `grep ". $CONFIGPATH/bash_custom" ~/.bashrc` ]]; then
     echo -ne "if [ -f $CONFIGPATH/bash_custom ]; then\n  . $CONFIGPATH/bash_custom \nfi" >> ~/.bashrc
@@ -39,10 +42,17 @@ mv ~/.screenrc ~/.screenrc.bak
 ln -sf $CONFIGPATH/screenrc ~/.screenrc
 
 echo "Installing required python packages"
-sudo pip install jedi
+sudo pip3 install jedi
 
 echo "Installing VIM plugins"
 git submodule update --init
 
 echo "Upgrading VIM plugins (this may be redundant)"
 git submodule foreach git pull origin master
+
+echo "Install homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "Install brew packages"
+xargs brew install < brew_list
+
