@@ -130,10 +130,17 @@ endif
 
 "Set linenumber stuff
 "set numberwidth=5
-"set relativenumber
-"autocmd InsertEnter * :set number
-"autocmd InsertLeave * :set relativenumber
-"highlight LineNr ctermbg=darkgrey
+highlight LineNr   guifg=#bbbbbb ctermfg=250 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+:set number
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
+" toggle lin numbers off
+nmap <leader>nu :set rnu! nu!<CR>
 
 "Set reasonable colors for pyflakes highlighting
 "hi SpellBad cterm=underline ctermbg=0
