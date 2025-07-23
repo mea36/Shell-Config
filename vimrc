@@ -542,6 +542,9 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 " map to ,f
 nmap <leader>f :Files <CR>
 
+" Something you're  doing keeps on folding all the things
+nmap <leader>uf zR
+
 " work specific
 " output console.log('mea36 '); below cursor
 nmap <leader>l oconsole.log(`mea36 `);<ESC>hh
