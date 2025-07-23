@@ -425,9 +425,10 @@ command JSON :%!python -m json.tool
 "create command to open a new tab with nerd tree
 fun! TabWithFileDir()
     " open new tab
-    :tabnew
+    :tabnew %
     " open nerd tree
-    :NERDTreeToggle
+    ":NERDTreeToggle
+    :NERDTreeFind
 endfun
 command TT :call TabWithFileDir()
 
