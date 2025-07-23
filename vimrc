@@ -83,6 +83,9 @@ syntax on
 " backspace fix
 set backspace=2
 
+" add padding to the left of the window by utilzing the signcolumn
+set signcolumn=yes
+
 " New leader
 let mapleader=","
 
