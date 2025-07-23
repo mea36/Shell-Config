@@ -70,7 +70,10 @@ Plug 'https://github.com/preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot' " language awareness for every language, recommended by Paul
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " 9/2/24, I think this is interfering with ale code completion that I like better
+" 9/2/24, I think this vv is interfering with ale code completion that I like better
+" 7/22/25, actually, i think this is the one with the black background that
+" you like
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jacoborus/tender.vim'
 
 
