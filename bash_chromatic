@@ -1,0 +1,10 @@
+# chromatic stuff
+export PATH="$PATH:$HOME/bin"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+alias dev_typegen="echo \"yarn generate-graphql-schema && yarn typescript:generate\"; yarn generate-graphql-schema && yarn typescript:generate"
+
+alias dev_server_with_capture="echo \"yarn dev-with-capture | tee log.txt | grep -iE -A 5 --color 'error|mea36'\"; yarn dev-with-capture | tee log.txt | grep -iE -A 5 --color 'error|mea36'";
+alias dev_server="echo \"yarn dev | tee log.txt | grep -iE -A 5 --color 'error|mea36'\"; yarn dev-with-capture | tee log.txt | grep -iE -A 5 --color 'error|mea36'";
+alias dev_tail="echo \"grc tail -F log.txt\"; grc tail -F log.txt"
+alias dev_mongo_restart="echo \"brew services restart mongodb-community@4.4\"; brew services restart mongodb-community@4.4"
