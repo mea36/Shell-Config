@@ -1,6 +1,8 @@
 Instructions:
-  $ ln -sf $CONFIGPATH/vimrc ~/.vimrc 
+  $ ln -sf $CONFIGPATH/vimrc ~/.vimrc
   $ ln -sf $CONFIGPATH/vim ~/.vim
+  $ mkdir -p ~/.config/nvim
+  $ ln -sf $CONFIGPATH/init.lua ~/.config/nvim/init.lua
   $ echo -ne "if [ -f $CONFIGPATH/bash_custom ]; then\n  . $CONFIGPATH/bash_custom \nfi" >> ~/.bashrc
   $ ln -sf $CONFIGPATH/screenrc ~/.screenrc
 

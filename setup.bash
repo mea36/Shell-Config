@@ -13,7 +13,8 @@ mv ~/.vim ~/.vim.bak
 ln -sf $CONFIGPATH/vim ~/.vim
 
 echo "Configuring NVIM"
-ln -sf $CONFIGPATH/vimrc ~/.config/nvim/init.vim 
+mkdir -p ~/.config/nvim
+ln -sf $CONFIGPATH/init.lua ~/.config/nvim/init.lua 
 
 echo "Configuring BASH"
 if [[ ! `grep ". $CONFIGPATH/bash_custom" ~/.bashrc` ]]; then

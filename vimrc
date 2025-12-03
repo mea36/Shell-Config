@@ -2,83 +2,12 @@ run pathogen
 call pathogen#infect()
 
 " -------------------------
-" Plugins
-" copied from https://github.com/john-kurkowski/dotfiles/blob/master/.vimrc
-" you are slowly replacing pathogen with this
-" NOTE: i don't think pathogen works with nvim?
-" make sure to copy ~/.vim/autoload/ to ~/.local/share/nvim/site/autoload/
+" Plugin management has been migrated to lazy.nvim
+" See init.lua for plugin specifications
 " -------------------------
-
-" Ensure vim-plug is installed on Vim startup.
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 " settings that need to happen before plugins are loaded
 let g:ale_completion_enabled = 1
-
-" Plugin list
-" NOTE that you are commenting out the ones you don't know what they do atm
-" Use :PlugInstall to update new plugs
-call plug#begin()
-
-Plug 'andymass/vim-matchup' " match-up is a plugin that lets you highlight, navigate, and operate on sets of matching text. It extends vim's % key to language-specific words instead of just single characters.
-Plug 'ap/vim-css-color' " A very fast, multi-syntax context-sensitive color name highlighter
-"Plug 'cocopon/iceberg.vim'
-Plug 'dense-analysis/ale' " linting (syntax checking and semantic errors) in NeoVim 0.6.0+ and Vim 8.0+ while you edit your text files, and acts as a Vim Language Server Protocol client.
-Plug 'direnv/direnv.vim' " This plugin aim is to integrate Direnv and (Neo)Vim. Because Vim can shell out to other tools it's nice if the environment is in sync with the usual shell.
-Plug 'dominickng/fzf-session.vim' " support for searching, saving, and deleting Vim sessions
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'wincent/loupe'
-"Plug 'machakann/vim-highlightedyank'
-"Plug 'maxbrunsfeld/vim-yankstack'
-"Plug 'maximbaz/lightline-ale'
-"Plug 'michaeljsmith/vim-indent-object'
-if has('nvim')
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-endif
-"Plug 'osyo-manga/vim-over'
-"Plug 'preservim/vim-textobj-quote'
-"Plug 'rickhowe/diffchar.vim'
-Plug 'sjl/gundo.vim'
-"Plug 'sodapopcan/vim-ifionly'
-"Plug 'tommcdo/vim-fugitive-blame-ext'
-Plug 'tpope/vim-commentary' " commenting with a stroke of 'gc'
-"Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb' " needed for GBrowse
-
-"Plug 'tpope/vim-repeat'
-"Plug 'tpope/vim-sensible'
-if !has('nvim')
-  "Plug 'tpope/vim-sleuth'
-endif
-"Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-unimpaired'
-"Plug 'tpope/vim-vinegar'
-"Plug 'vim-utils/vim-husk'
-"Plug 'wellle/targets.vim'
-"Plug 'yssl/QFEnter'
-"
-"Mel's
-Plug 'https://github.com/ervandew/supertab.git'
-Plug 'https://github.com/preservim/nerdtree'
-"Plug 'jparise/vim-graphql'        " GraphQL syntax - note: suggested but not
-"using unless needed
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot' " language awareness for every language, recommended by Paul
-" 9/2/24, I think this vv is interfering with ale code completion that I like better
-" 7/22/25, actually, i think this is the one with the black background that
-" you like
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jacoborus/tender.vim'
-
-
-
-call plug#end()
 
 set rtp+=/usr/local/go/misc/vim
 syntax on
