@@ -18,7 +18,7 @@ if [ -f ~/Source/Shell-Config/bash_chromatic ]; then
 fi
 
 
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 
 # VI mode!
 set -o vi
@@ -84,9 +84,6 @@ function push(){
 rmd () {
   pandoc $1 | lynx -stdin
 }
-
-# fzf
-#eval "$(fzf --bash)" # this isn't working, do you need it?
 
 
 # for gnu-sed brew install
