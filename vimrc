@@ -421,20 +421,20 @@ nnoremap <silent> gk :ALEDetail<CR>
 let g:ale_linter_aliases = {'astro': ['css', 'javascript', 'typescript']}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'astro': ['eslint', 'stylelint', 'prettier'],
+"\   'astro': ['eslint', 'stylelint', 'prettier'],
 \   'css': ['stylelint', 'prettier'],
 \   'javascript': ['eslint', 'prettier'],
 \   'json': ['fixjson', 'prettier'],
 \   'html': ['prettier'],
 \   'markdown': ['remark-lint', 'prettier'],
 \   'python': ['ruff', 'ruff_format'],
-\   'ruby': ['rubocop'],
-\   'rust': ['rustfmt'],
-\   'scss': ['stylelint'],
+"\   'ruby': ['rubocop'],
+"\   'rust': ['rustfmt'],
+"\   'scss': ['stylelint'],
 \   'sh': ['shfmt'],
-\   'svelte': ['eslint', 'prettier'],
+"\   'svelte': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],
-\   'vue': ['eslint', 'prettier'],
+"\   'vue': ['eslint', 'prettier'],
 \}
 " TODO: add tsserver to astro. tsserver seems to parse a whole Astro file as TypeScript.
 let g:ale_linters = {
@@ -445,9 +445,9 @@ let g:ale_linters = {
 \   'html': [],
 \   'javascript': ['eslint', 'tsserver'],
 \   'markdown': ['remark-lint'],
-\   'python': ['mypy', 'pylsp', 'ruff'],
+"\   'python': ['mypy', 'pylsp', 'ruff'],
 \   'typescript': ['eslint', 'tsserver'],
-\   'vue': ['eslint', 'vls'],
+"\   'vue': ['eslint', 'vls'],
 \}
 set omnifunc=ale#completion#OmniFunc
 
