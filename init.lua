@@ -17,7 +17,7 @@ require("lazy").setup({
   -- match-up: highlight, navigate, and operate on sets of matching text
   {
     "andymass/vim-matchup",
-    lazy = false,
+    event = "BufReadPost",
   },
 
   -- Fast color name highlighter
@@ -66,6 +66,21 @@ require("lazy").setup({
     lazy = false,
     build = ":TSUpdate",
     cond = vim.fn.has("nvim") == 1,
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "javascript", "typescript", "tsx",
+          "css", "html",
+          "python", "elixir",
+          "markdown", "markdown_inline",
+          "json", "yaml",
+          "bash", "lua",
+          "vim", "vimdoc",
+        },
+        highlight = { enable = true },
+        indent = { enable = true },
+      })
+    end,
   },
 
   -- Gundo: Visualize undo tree
@@ -118,19 +133,6 @@ require("lazy").setup({
       { "<leader>f", "<cmd>Files<cr>", desc = "FZF Files" },
     },
     cmd = { "Files", "GFiles", "Buffers", "Ag", "Rg" },
-  },
-
-  -- Polyglot: Language pack
-  {
-    "sheerun/vim-polyglot",
-    event = "BufReadPre",
-  },
-
-  -- Coc: Intellisense engine
-  {
-    "neoclide/coc.nvim",
-    branch = "release",
-    event = "InsertEnter",
   },
 
   -- Tender colorscheme

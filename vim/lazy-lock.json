@@ -1,6 +1,5 @@
 {
   "ale": { "branch": "master", "commit": "ca1da76d5e91e42f676654905c0c7b6d074b8068" },
-  "coc.nvim": { "branch": "release", "commit": "c18a26cced383145e25fa5e003fd8c31af2b1332" },
   "direnv.vim": { "branch": "master", "commit": "ab2a7e08dd630060cd81d7946739ac7442a4f269" },
   "fzf": { "branch": "master", "commit": "fcc4178bcaf7ceb7b0083b2088048a084a251e4d" },
   "fzf-session.vim": { "branch": "master", "commit": "b23069ad17352cbf55fde3d274dd172f3f40d6a9" },
@@ -17,6 +16,5 @@
   "vim-css-color": { "branch": "master", "commit": "14fd934cdd9ca1ac0e53511094e612eb9bace373" },
   "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
   "vim-matchup": { "branch": "master", "commit": "1c276e12b49a83c1bdca74351187b8adea5da4b9" },
-  "vim-polyglot": { "branch": "master", "commit": "f061eddb7cdcc614c8406847b2bfb53099832a4e" },
   "vim-rhubarb": { "branch": "master", "commit": "5496d7c94581c4c9ad7430357449bb57fc59f501" }
 }
