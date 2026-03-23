@@ -7,6 +7,9 @@ echo "Configuring NVIM"
 mkdir -p ~/.config/nvim
 ln -sf $CONFIGPATH/init.lua ~/.config/nvim/init.lua 
 
+echo "Switching default shell to bash"
+chsh -s /bin/bash
+
 echo "Configuring BASH"
 if [[ ! `grep ". $CONFIGPATH/bash_custom" ~/.bashrc` ]]; then
     echo -ne "if [ -f $CONFIGPATH/bash_custom ]; then\n  . $CONFIGPATH/bash_custom \nfi" >> ~/.bashrc
