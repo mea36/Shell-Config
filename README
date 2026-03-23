@@ -1,9 +1,19 @@
-Instructions:
-  $ ln -sf $CONFIGPATH/vimrc ~/.vimrc
-  $ ln -sf $CONFIGPATH/vim ~/.vim
+Instructions (or run ./setup.bash):
+
+  NVIM
   $ mkdir -p ~/.config/nvim
   $ ln -sf $CONFIGPATH/init.lua ~/.config/nvim/init.lua
+  Plugins (lazy.nvim) and treesitter parsers auto-install on first launch.
+
+  BASH
   $ echo -ne "if [ -f $CONFIGPATH/bash_custom ]; then\n  . $CONFIGPATH/bash_custom \nfi" >> ~/.bashrc
+  $ echo -ne "if [ -f $CONFIGPATH/bash_custom ]; then\n  . $CONFIGPATH/bash_custom \nfi" >> ~/.bash_profile
+  $ ln -sf $CONFIGPATH/bash_scripts ~/.bash_scripts
+  $ ln -sf $CONFIGPATH/inputrc ~/.inputrc
+
+  SCREEN
   $ ln -sf $CONFIGPATH/screenrc ~/.screenrc
 
-or run ./setup.bash
+  HOMEBREW
+  $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  $ xargs brew install < brew_list
