@@ -1,3 +1,6 @@
+-- Set leader before lazy loads plugins so keymaps use the correct leader
+vim.g.mapleader = ","
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
