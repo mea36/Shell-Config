@@ -144,6 +144,22 @@ require("lazy").setup({
     lazy = false,
     priority = 1000,
   },
+
+  -- Claude Code integration
+  {
+    "greggh/claude-code.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("claude-code").setup({
+        keymaps = {
+          toggle = {
+            normal = "<leader>ac",
+            terminal = "<leader>ac",
+          },
+        },
+      })
+    end,
+  },
 }, {
   -- lazy.nvim configuration options
   install = {
