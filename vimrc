@@ -1,10 +1,4 @@
-run pathogen
-call pathogen#infect()
-
-" -------------------------
-" Plugin management has been migrated to lazy.nvim
-" See init.lua for plugin specifications
-" -------------------------
+" Plugin management is handled by lazy.nvim (see init.lua)
 
 " settings that need to happen before plugins are loaded
 let g:ale_completion_enabled = 1
@@ -462,3 +456,4 @@ nmap <leader>uf zR
 " work specific
 " output console.log('mea36 '); below cursor
 nmap <leader>l oconsole.log(`mea36 `);<ESC>hh
+nnoremap <leader>lg :LazyGit<CR>

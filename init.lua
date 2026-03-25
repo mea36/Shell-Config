@@ -138,6 +138,20 @@ require("lazy").setup({
     cmd = { "Files", "GFiles", "Buffers", "Ag", "Rg" },
   },
 
+  -- LazyGit: Git TUI integration
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
   -- Tender colorscheme
   {
     "jacoborus/tender.vim",
