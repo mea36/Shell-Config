@@ -70,7 +70,7 @@ require("lazy").setup({
     build = ":TSUpdate",
     cond = vim.fn.has("nvim") == 1,
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup({
         ensure_installed = {
           "javascript", "typescript", "tsx",
           "css", "html",
