@@ -17,7 +17,7 @@ alias dev_mongo_restart="echo \"brew services restart mongodb-community@4.4\"; b
 
 . "/opt/homebrew/opt/asdf/libexec/asdf.sh"
 
-. "/opt/homebrew/opt/asdf/etc/bash_completion.d/asdf.bash"
+. "/opt/homebrew/opt/asdf/etc/bash_completion.d/asdf"
 # BEGIN_AWS_SSO_CLI
 __aws_sso_profile_complete() {
     COMPREPLY=()

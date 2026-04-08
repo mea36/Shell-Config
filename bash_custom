@@ -17,6 +17,8 @@ if [ -f ~/Source/Shell-Config/bash_chromatic ]; then
    . ~/Source/Shell-Config/bash_chromatic
 fi
 
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 
 export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 

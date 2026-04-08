@@ -2,3 +2,5 @@ selecta
 neovim
 gnu-sed
 lazygit
+bash-completion@2
+git
