@@ -167,8 +167,8 @@ require("lazy").setup({
       require("claude-code").setup({
         keymaps = {
           toggle = {
-            normal = "<leader>ac",
-            terminal = "<leader>ac",
+            normal = "<leader>cc",
+            terminal = "<leader>cc",
           },
         },
       })
