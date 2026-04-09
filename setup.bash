@@ -8,6 +8,10 @@ mkdir -p ~/.config/nvim
 ln -sf $CONFIGPATH/init.lua ~/.config/nvim/init.lua
 ln -sf $CONFIGPATH/vimrc ~/.vimrc
 
+echo "Configuring lazygit"
+mkdir -p ~/.config/lazygit
+ln -sf $CONFIGPATH/lazygit/config.yml ~/.config/lazygit/config.yml
+
 echo "Switching default shell to bash"
 chsh -s /bin/bash
 
