@@ -48,6 +48,8 @@ endif
 "set background=dark
 if has('nvim')
   colorscheme tender
+  set fillchars+=vert:│
+  highlight WinSeparator guifg=#444444 guibg=NONE
 endif
 
 
