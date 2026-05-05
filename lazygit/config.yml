@@ -8,5 +8,5 @@ gui:
 customCommands:
   - key: 'o'
     context: 'files'
-    command: 'nvim --server "$NVIM" --remote-tab "{{.SelectedFile.Name}}"'
+    command: '[ -n "$NVIM" ] && nvim --server "$NVIM" --remote-tab "{{.SelectedFile.Name}}" || nvim "{{.SelectedFile.Name}}"'
     description: 'Open file in a new nvim tab'
