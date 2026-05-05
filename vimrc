@@ -348,7 +348,7 @@ endfun
 command Tstatus :call TabWithGitStatus()
 
 " format json
-command JSON :%!python -m json.tool
+command JSON :%!python3 -m json.tool
 
 "create command to open a new tab with nerd tree
 fun! TabWithFileDir()
