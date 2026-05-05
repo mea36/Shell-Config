@@ -80,8 +80,11 @@ require("lazy").setup({
           "bash", "lua",
           "vim", "vimdoc",
         },
-        highlight = { enable = true },
-        indent = { enable = true },
+      })
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+        end,
       })
     end,
   },
@@ -136,6 +139,9 @@ require("lazy").setup({
       { "<leader>f", "<cmd>Files<cr>", desc = "FZF Files" },
     },
     cmd = { "Files", "GFiles", "Buffers", "Ag", "Rg" },
+    config = function()
+      vim.env.FZF_DEFAULT_COMMAND = "fd --type f --hidden --exclude .git --exclude node_modules --exclude _build --exclude deps --exclude .elixir_ls"
+    end,
   },
 
   -- LazyGit: Git TUI integration
@@ -193,6 +199,16 @@ require("lazy").setup({
       },
     },
   },
+})
+
+-- Elixir: use treesitter for folding since the syntax file defines no fold regions
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "elixir",
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt_local.foldlevel = 99
+  end,
 })
 
 -- Source the existing vimrc for all settings and keybindings

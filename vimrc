@@ -414,6 +414,7 @@ nnoremap <silent> gds :ALEGoToDefinition -split<CR>
 nnoremap <silent> gdt :ALEGoToDefinition -tab<CR>
 nnoremap <silent> gdv :ALEGoToDefinition -vsplit<CR>
 nnoremap <silent> gk :ALEDetail<CR>
+let g:ale_elixir_elixir_ls_release = '/opt/homebrew/opt/elixir-ls/libexec'
 let g:ale_linter_aliases = {'astro': ['css', 'javascript', 'typescript']}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -423,6 +424,7 @@ let g:ale_fixers = {
 \   'json': ['fixjson', 'prettier'],
 \   'html': ['prettier'],
 \   'markdown': ['remark-lint', 'prettier'],
+\   'elixir': ['mix_format'],
 \   'python': ['ruff', 'ruff_format'],
 "\   'ruby': ['rubocop'],
 "\   'rust': ['rustfmt'],
@@ -436,7 +438,7 @@ let g:ale_fixers = {
 let g:ale_linters = {
 \   'astro': ['eslint', 'stylelint'],
 \   'css': ['stylelint'],
-\   'elixir': ['credo', 'dialyxir', 'dogma'],
+\   'elixir': ['elixir-ls', 'credo', 'dialyxir', 'dogma'],
 \   'handlebars': ['ember-template-lint'],
 \   'html': [],
 \   'javascript': ['eslint', 'tsserver'],

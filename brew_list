@@ -4,3 +4,6 @@ gnu-sed
 lazygit
 bash-completion@2
 git
+tree-sitter-cli
+fd
+elixir-ls
