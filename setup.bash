@@ -35,6 +35,11 @@ echo "Configuring SCREEN"
 mv ~/.screenrc ~/.screenrc.bak
 ln -sf $CONFIGPATH/screenrc ~/.screenrc
 
+echo "Configuring Claude commands"
+mkdir -p ~/.claude
+rm -rf ~/.claude/commands
+ln -sf $CONFIGPATH/claude/commands ~/.claude/commands
+
 echo "Install homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
