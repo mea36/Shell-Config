@@ -8,5 +8,5 @@ gui:
 customCommands:
   - key: 'o'
     context: 'files'
-    command: '[ -n "$NVIM" ] && nvim --server "$NVIM" --remote-tab "{{.SelectedFile.Name}}" || nvim "{{.SelectedFile.Name}}"'
+    command: 'if [ -n "$NVIM" ]; then nvim --server "$NVIM" --remote-send "<C-\><C-n>:q<CR>:tabedit {{.SelectedFile.Name}}<CR>"; else nvim "{{.SelectedFile.Name}}"; fi'
     description: 'Open file in a new nvim tab'
