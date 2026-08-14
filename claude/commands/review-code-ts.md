@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(gh pr diff*), Bash(gh pr view*), Bash(gh pr list*), Bash(git diff*), Bash(git log*), Bash(git status*), Bash(npx eslint*), Bash(npm run lint*), Bash(yarn lint*), Bash(pnpm lint*), Read(package.json)
+allowed-tools: Bash(gh pr diff*), Bash(gh pr view*), Bash(gh pr list*), Bash(git diff*), Bash(git log*), Bash(git status*)
 ---
 
 Pre-review a PR before requesting teammate review. If a PR number or URL is provided as an argument, review that PR; otherwise use the current branch's PR.
@@ -11,15 +11,9 @@ Pre-review a PR before requesting teammate review. If a PR number or URL is prov
    - `gh pr diff <number>` — get the full diff
    - Read any new files in full — they won't appear completely in the diff
 
-2. Lint the changed files:
-   - Get the list of changed `.ts`/`.tsx` files: `git diff --name-only origin/main...HEAD | grep -E '\.(ts|tsx)$'`
-   - Check `package.json` to find the lint script (prefer `npm run lint -- <files>` if it accepts file args, otherwise fall back to `npx eslint <files>`)
-   - Run the linter on the changed files and capture output — lint errors are blocking findings, warnings are nits
-   - If the lint script doesn't support per-file args, run `npx eslint <files>` directly
+2. If the diff touches the public API (e.g. files under `api-public/`, `lib/schema/`, or GraphQL types exposed publicly), invoke the `review-public-api-proposal` skill and read the guidelines before continuing
 
-3. If the diff touches the public API (e.g. files under `api-public/`, `lib/schema/`, or GraphQL types exposed publicly), invoke the `review-public-api-proposal` skill and read the guidelines before continuing
-
-4. Before reviewing conventions, check sibling files to understand what this codebase actually does rather than assuming defaults
+3. Before reviewing conventions, check sibling files to understand what this codebase actually does rather than assuming defaults
 
 ## What to Review
 
@@ -54,7 +48,6 @@ Pre-review a PR before requesting teammate review. If a PR number or URL is prov
 ## Output Format
 
 - **Summary** — what the change does in 2-3 sentences
-- **Lint** — errors and warnings from ESLint, or confirmation it's clean
 - **Security** — findings or confirmation it looks clean
 - **Bugs / Correctness** — anything that would cause failures or unexpected behavior
 - **Consistency & Style** — naming, patterns, duplication
