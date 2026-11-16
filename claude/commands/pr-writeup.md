@@ -1,3 +1,9 @@
+---
+name: pr-writeup
+description: Given a commit range, produce a PR summary and QA steps.
+model: claude-sonnet-5
+---
+
 Given a commit range, produce a PR summary and QA steps.
 
 ## Usage
@@ -42,3 +48,5 @@ All steps — including happy path and rejection/edge cases — should be number
 Do not include a step for deploying the review app — that happens automatically.
 
 The entire output (summary and QA steps) should be written in markdown. Output the raw markdown directly — do not wrap the entire output in a code block.
+
+Before the Summary section, output a one-line reminder: `_(This skill is pinned to Sonnet 5 — model in this response: <actual model that generated this output>.)_`
